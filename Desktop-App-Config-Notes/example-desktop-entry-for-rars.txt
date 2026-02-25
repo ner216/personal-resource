@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=RARS
+Exec=java -jar /home/nolan/.RARS/rars1_6.jar
+Terminal=false
+Type=Application
