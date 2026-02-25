@@ -1,0 +1,6 @@
+# Ignore venv
+.venv
+# Ignore generated images
+*.png
+# Ignore pycache
+__pycache__/
