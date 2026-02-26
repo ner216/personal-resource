@@ -23,6 +23,16 @@ remove_snap() {
     snap remove --purge core22
     snap remove --purge bare
     snap remove --purge snapd
+
+    snap install gtk-common-themes
+    snap install snap-store
+    snap install prompting-client
+    snap install desktop-security-center
+    snap install snapd-desktop-integration
+    snap install gnome-42-2204
+    snap install core22
+    snap install bare
+    snap install snapd
     
     printf "Removing snapd...\n"
     apt remove --purge -y snapd
