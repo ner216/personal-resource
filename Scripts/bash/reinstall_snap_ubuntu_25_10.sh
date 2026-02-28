@@ -11,17 +11,17 @@ fi
 
 
 printf "Removing individual snap packages...\n"
-snap remove --purge firefox
-snap remove --purge gtk-common-themes
-snap remove --purge snap-store
-snap remove --purge firmware-updater
-snap remove --purge prompting-client
-snap remove --purge desktop-security-center
-snap remove --purge snapd-desktop-integration
-snap remove --purge gnome-42-2204
-snap remove --purge core22
-snap remove --purge bare
-snap remove --purge snapd
+snap remove firefox
+snap remove gtk-common-themes
+snap remove snap-store
+snap remove firmware-updater
+snap remove prompting-client
+snap remove desktop-security-center
+snap remove snapd-desktop-integration
+snap remove gnome-42-2204
+snap remove core22
+snap remove bare
+snap remove snapd
 
 printf "Enabling expiremental option to hide the snap folder.\n"
 snap set system experimental.hidden-snap-folder=true
