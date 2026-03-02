@@ -34,14 +34,14 @@ check_snap_folder() {
     SNAP_DIR="$HOME/snap"
 
     if [ -d "$SNAP_DIR" ]; then
-    # 3. Check if it's empty (including hidden files, but excluding . and ..)
+    # Check if it's empty (including hidden files, but excluding . and ..)
     # 'A' ignores . and .., but finds everything else.
     if [ -z "$(ls -A "$SNAP_DIR")" ]; then
         echo "The ~/snap folder is empty. Deleting..."
-        sleep 3
+        sleep 6
         rmdir "$SNAP_DIR"
     else
-        echo "The ~/snap folder is NOT empty."
+        echo "The old ~/snap folder is NOT empty."
         echo "Current contents:"
         ls -A "$SNAP_DIR"
         exit 0
@@ -52,8 +52,8 @@ check_snap_folder() {
 }
 
 hide_snap_folder() {
-    printf "$YELLOW Will perform hide-snap-folder action in 3 seconds...$RESET\n"
-    sleep 3
+    printf "$YELLOW Will perform hide-snap-folder action in 6 seconds...$RESET\n"
+    sleep 6
 
     printf "Removing individual snap packages in order...\n"
     snap remove firefox
@@ -68,7 +68,7 @@ hide_snap_folder() {
     snap remove bare
     snap remove snapd
 
-    printf "Enabling expiremental option to hide the snap folder.\n"
+    printf "$YELLOW Enabling expiremental option to hide the snap folder. $RESET\n"
     snap set system experimental.hidden-snap-folder=true
 
     printf "Installing individual snap packages...\n"
@@ -91,8 +91,8 @@ hide_snap_folder() {
 
 # Function to remove snap packages along with snapd
 remove_snap() {
-    printf "$YELLOW Will perform remove-snap action in 3 seconds...$RESET\n"
-    sleep 3
+    printf "$YELLOW Will perform remove-snap action in 6 seconds...$RESET\n"
+    sleep 6
 
     printf "Removing individual snap packages...\n"
     snap remove --purge firefox
@@ -118,8 +118,8 @@ remove_snap() {
 }
 
 replace_store_w_software() {
-    printf "$YELLOW Will perform replace-snap-store-w-gnome-software action in 3 seconds...$RESET\n"
-    sleep 3
+    printf "$YELLOW Will perform replace-snap-store-w-gnome-software action in 6 seconds...$RESET\n"
+    sleep 6
 
     snap remove --purge snap-store
     apt install gnome-software
@@ -137,8 +137,8 @@ replace_store_w_software() {
 }
 
 setup_flatpak() {
-    printf "$YELLOW Will perform configure-flatpak action in 3 seconds...$RESET\n"
-    sleep 3
+    printf "$YELLOW Will perform configure-flatpak action in 6 seconds...$RESET\n"
+    sleep 6
 
     # Installing flatpak
     apt install -y flatpak
@@ -149,8 +149,8 @@ setup_flatpak() {
 }
 
 setup_default_gnome() {
-    printf "$YELLOW Will perform add-default-gnome-session action in 3 seconds...$RESET\n"
-    sleep 3
+    printf "$YELLOW Will perform add-default-gnome-session action in 6 seconds...$RESET\n"
+    sleep 6
 
     apt install -y gnome-session
     # Install commonly used Gnome packages
@@ -162,14 +162,14 @@ setup_default_gnome() {
 
 main() {
     if [ $UPDATE_SYSTEM -eq 1 ]; then
-        printf "$YELLOW Will perform update-system action in 3 seconds...$RESET\n"
-        sleep 3
+        printf "$YELLOW Will perform update-system action in 6 seconds...$RESET\n"
+        sleep 6
 
         apt update -y && apt upgrade -y
     fi
 
     if [ $HIDE_SNAP_FOLDER -eq 1 ]; then
-        hide_snap_folder()
+        hide_snap_folder
     fi
 
     if [ $ADD_DEFAULT_GNOME_SESSION -eq 1 ]; then
