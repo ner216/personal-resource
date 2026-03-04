@@ -16,6 +16,9 @@ A node is a logical object in ros which is responsible for only one task. Exampl
 - To view a node's current params `ros2 param dump <node_name>`
 - To load params from a file `ros2 param load <node_name> <param_file>`
 
+### ros2 Launch
+- The ros2 Launch command has an introspection tool to show what is being called and parameters used. It is invoked with the `-s` option.
+
 ### Message busses for nodes in ros
 
 **Topics**
