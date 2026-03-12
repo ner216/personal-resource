@@ -27,7 +27,7 @@ set_fan_speed() {
     set_fan_control_mode 1
     new_speed_arg=${1}
     
-    printf "${YELLOW}Setting fan speed to ${new_speed}\n${RESET}"
+    printf "${YELLOW}Setting fan speed to ${new_speed_arg}\n${RESET}"
     nvidia-settings -a [fan:0]/GPUTargetFanSpeed=${new_speed_arg}
 }
 
