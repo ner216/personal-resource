@@ -1,0 +1,14 @@
+# User Additions
+
+alias la="ls -a"
+alias ll="ls -l"
+
+alias vi="nvim"
+alias vim="nvim"
+alias setup-ros="source /opt/ros/jazzy/setup.bash"
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+
+jp() { cd "$(gity -g "$@")" && git status; }
