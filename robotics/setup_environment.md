@@ -8,8 +8,10 @@
 - Follow ros2 docs to install ros2: [Ros2 Docs](https://docs.ros.org/en/jazzy/index.html)
 
 ### Setup the project
-- Setup bash environment: `source /opt/ros/jazzy/setup.bash`
-- Install project dependancies: `rosdep install -i --from-path src --rosdistro jazzy -y`
-- Install project packages with colcon: `colcon build --symlink-install`
-- Setup bash environment for project files: `source install/setup.bash`
-- Launch project: `ros2 launch [PATH-TO-LAUNCHFILE]`
+- Setup bash environment: `. /opt/ros/jazzy/setup.bash`
+- Install project dependancies: `rosdep install -i --from-path src -y`
+- Install project packages with colcon: 
+    - With symlinks: `colcon build --symlink-install`
+    - With symlinks and release mode: `colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release`
+- Setup bash environment for project files: `. install/setup.bash`
+- Launch project: `ros2 launch [PACKAGE-NAME] [LAUNCHFILE]`
